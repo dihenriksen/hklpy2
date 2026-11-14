@@ -1199,6 +1199,8 @@ class Core:
     @property
     def sample(self) -> Sample:
         """Current Sample (Python object)."""
+        if not self._sample_name:
+            return None
         return self.samples[self._sample_name]
 
     @sample.setter
