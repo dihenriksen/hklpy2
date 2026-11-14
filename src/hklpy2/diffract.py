@@ -196,7 +196,8 @@ class DiffractometerBase(PseudoPositioner):
         )
         self.reals_units = reals_units or INTERNAL_ANGLE_UNITS
 
-        self.core = Core(self)
+        default_sample = kwargs.pop("default_sample") if "default_sample" in kwargs else True
+        self.core = Core(self, default_sample=default_sample)
 
         super().__init__(prefix, **kwargs)
 
